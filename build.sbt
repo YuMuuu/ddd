@@ -6,3 +6,6 @@ scalaVersion := "2.13.3"
 
 
 lazy val core = (project in file("core"))
+
+lazy val domain = (project in file("domain"))
+  .dependsOn(core)
