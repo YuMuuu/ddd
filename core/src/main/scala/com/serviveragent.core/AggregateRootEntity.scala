@@ -9,7 +9,7 @@ package com.serviveragent.core
 example:
   case class 注文(id: 注文Id) extends AggregateRootEntity[注文id]
  */
-trait AggregateRootEntity[ID <: Identifier[_]] extends Entity[ID] {
+trait AggregateRootEntity extends Entity {
 }
 //todo:
 // AggregateRootEntityの引数にAggregateRootEntity型の値を代入することができてしまう

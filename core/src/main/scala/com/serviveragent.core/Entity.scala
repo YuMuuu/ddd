@@ -9,7 +9,8 @@ package com.serviveragent.core
 example:
   case class User(id: UserId, name: String) extends Entity[UserId]
  */
-trait Entity[ID <: Identifier[_]] {
+trait Entity {
+  type ID <: Identifier[_]
   def id: ID
 
 //  def sameIdentityAs(that: Entity): Boolean = {
