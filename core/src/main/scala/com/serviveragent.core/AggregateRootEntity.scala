@@ -7,11 +7,10 @@ package com.serviveragent.core
  */
 /*
 example:
-  case class 注文(
-               id: 注文Id,
-             ) extends AggregateRootEntity
+  case class 注文(id: 注文Id) extends AggregateRootEntity[注文id]
  */
-trait AggregateRootEntity extends Entity
+trait AggregateRootEntity[ID <: Identifier[_]] extends Entity[ID] {
+}
 //todo:
 // AggregateRootEntityの引数にAggregateRootEntity型の値を代入することができてしまう
 // コンパイル時にこれを許さないようにしたい（macroを使う?）
