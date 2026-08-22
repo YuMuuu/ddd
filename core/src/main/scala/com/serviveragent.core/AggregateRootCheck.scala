@@ -22,8 +22,8 @@ object AggregateRootCheck:
         checkElems[ts]()
       case _ => ()
 
-  inline given derived[T <: AggregateRootEntity[?]](
-      using mirror: Mirror.Of[T]
+  inline given derived[T <: AggregateRootEntity[?]](using
+      mirror: Mirror.Of[T]
   ): AggregateRootCheck[T] =
     new AggregateRootCheck[T]:
       inline mirror match
