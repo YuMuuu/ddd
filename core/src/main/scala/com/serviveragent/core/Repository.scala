@@ -1,11 +1,9 @@
 package com.serviveragent.core
 
-import cats.effect.kernel.MonadCancel
-
 /** Repositoryを表す抽象
   */
 abstract class Repository[
-    F[_]: [F[_]] =>> MonadCancel[F, Throwable],
+    F[_],
     ID <: Identifier[?],
     AE <: AggregateRootEntity[ID]
 ]:
