@@ -1,11 +1,14 @@
 package com.serviveragent.core
 
-import com.serviveragent.core.typeclass.{FlatMap, Functor}
+import cats.effect.kernel.MonadCancel
 
-//todo: Fの制約は充分か？
-
-trait Repository[F[_] <: Functor[F] with FlatMap[F], AE <: AggregateRootEntity]{
-  def findById(id: AE#ID): F[Vector[AE]]
-  def store(entity: AE): F[Unit]
-  def delete(id: AE#ID): F[Unit]
-}
+/** Repositoryを表す抽象
+  */
+abstract class Repository[
+    F[_]: [F[_]] =>> MonadCancel[F, Throwable],
+    ID <: Identifier[?],
+    AE <: AggregateRootEntity[ID]
+]:
+  def findById(id: ID): F[Option[AE]]
+  def store(entity: AE): F[AE]
+  def delete(id: ID): F[Unit]
