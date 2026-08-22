@@ -4,7 +4,7 @@ import com.serviveragent.core.UUID.*
 
 import scala.util.Try
 
-/** UUID型を持つIdentifierの具象。
+/** UUID型を持つIdentifierの具象
   */
 case class UUID(value: Raw) extends Identifier[Raw]
 

@@ -1,4 +1,6 @@
-package com.serviveragent.core
+package com.serviveragent.core.snapshot
+
+import com.serviveragent.core.{AggregateRootEntity, Identifier}
 
 /** Repositoryを表す抽象
   */

@@ -1,8 +1,14 @@
 package com.serviveragent.core
 
-/**
- * ある集約ルートが別の集約ルートを直接フィールドに持っていないかをコンパイル時に検査する。
- */
+/** ある集約ルートが別の集約ルートを直接フィールドに持っていないかをコンパイル時に検査する
+  *
+  * example: Tweetの定義に対する検査をコンパイル時に実行する
+  *
+  * {{{
+  * object Tweet:
+  *   private val aggregateRootCheck = summon[AggregateRootCheck[Tweet]]
+  * }}}
+  */
 trait AggregateRootCheck[A]
 
 object AggregateRootCheck:
